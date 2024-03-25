@@ -2,6 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+--opts
+vim.opt.clipboard = 'unnamedplus'
+
 
 --plugins
 local betterescape = { 'jdhao/better-escape.vim' }
