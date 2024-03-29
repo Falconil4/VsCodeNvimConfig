@@ -11,6 +11,7 @@ local betterescape = { 'jdhao/better-escape.vim' }
 local vimsurround = { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup({}) end }
 local leap = { 'ggandor/leap.nvim', config = function() require('leap').create_default_mappings() end }
 local improvedft = { 'backdround/improved-ft.nvim', config = function() require('improved-ft').setup({ use_default_mappings = true }) end }
+local mini = { 'echasnovski/mini.nvim', config = function() require('mini.ai').setup(); require('mini.comment').setup(), version = false }
 
 
 local plugins =  {
@@ -18,6 +19,7 @@ local plugins =  {
   vimsurround,
   leap,
   improvedft,
+  mini,
 }
 
 
