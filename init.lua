@@ -34,6 +34,7 @@ vim.keymap.set('n', '<Leader>ff', function() require('vscode-neovim').action('wo
 vim.keymap.set('n', '<Leader>r', function() require('vscode-neovim').action('editor.action.rename') end);
 vim.keymap.set('n', '<Leader>la', function() require('vscode-neovim').action('editor.action.quickFix') end);
 vim.keymap.set('n', '<Leader>c', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end);
+vim.keymap.set('n', '<Leader>C', function() require('vscode-neovim').action('workbench.action.closeOtherEditors') end);
 vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').call('workbench.action.tasks.runTask', { args = { 'open_lazygit' } }) end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('references-view.findReferences') end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end);
