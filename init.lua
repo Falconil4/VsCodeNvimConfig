@@ -5,37 +5,54 @@ vim.g.maplocalleader = " "
 --opts
 vim.opt.clipboard = 'unnamedplus'
 
-
 --plugins
-local betterescape = { 'jdhao/better-escape.vim' }
-local vimsurround = { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup({}) end }
-local leap = { 'ggandor/leap.nvim', config = function() require('leap').create_default_mappings() end }
-local improvedft = { 'backdround/improved-ft.nvim', config = function() require('improved-ft').setup({ use_default_mappings = true }) end }
-local mini = { 'echasnovski/mini.nvim', config = function() require('mini.ai').setup(); require('mini.comment').setup() end, version = false }
-
-
 local plugins =  {
-  betterescape,
-  vimsurround,
-  leap,
-  improvedft,
-  mini,
-}
-
+  { 'jdhao/better-escape.vim' },
+  {
+    'echasnovski/mini.nvim',
+    config = function()
+      require('mini.ai').setup();
+      require('mini.comment').setup();
+      require('mini.surround').setup({
+        mappings = {
+          add = "gsa", -- Add surrounding in Normal and Visual modes
+          delete = "gsd", -- Delete surrounding
+          find = "gsf", -- Find surrounding (to the right)
+          find_left = "gsF", -- Find surrounding (to the left)
+          highlight = "gsh", -- Highlight surrounding
+          replace = "gsr", -- Replace surrounding
+          update_n_lines = "gsn", -- Update `n_lines`
+        },
+      });
+    end,
+    version = false
+  },
+  { 'nvim-lua/plenary.nvim' },
+  { "folke/todo-comments.nvim" },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
+};
 
 -- general remaps
 vim.keymap.set('x', 'p', 'pgvy');
-
 
 -- vscode remaps
 local vscode = require('vscode-neovim')
 vim.keymap.set('n', '<Leader>fw', function() require('vscode-neovim').action('workbench.action.findInFiles') end);
 vim.keymap.set('n', '<Leader>ff', function() require('vscode-neovim').action('workbench.action.quickOpen') end);
 vim.keymap.set('n', '<Leader>r', function() require('vscode-neovim').action('editor.action.rename') end);
-vim.keymap.set('n', '<Leader>la', function() require('vscode-neovim').action('editor.action.quickFix') end);
-vim.keymap.set('n', '<Leader>c', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end);
-vim.keymap.set('n', '<Leader>C', function() require('vscode-neovim').action('workbench.action.closeOtherEditors') end);
-vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').call('workbench.action.tasks.runTask', { args = { 'open_lazygit' } }) end);
+vim.keymap.set('n', '<Leader>ca', function() require('vscode-neovim').action('editor.action.quickFix') end);
+vim.keymap.set('n', '<Leader>bc', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end);
+vim.keymap.set('n', '<Leader>bo', function() require('vscode-neovim').action('workbench.action.closeOtherEditors') end);
+vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').call('workbench.action.tasks.runTask', { args = { 'Lazygit' } }) end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('references-view.findReferences') end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end);
 vim.keymap.set('n', 'gi', function() require('vscode-neovim').action('editor.action.goToImplementation') end);
