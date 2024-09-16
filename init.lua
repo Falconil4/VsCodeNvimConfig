@@ -27,8 +27,6 @@ local plugins =  {
     end,
     version = false
   },
-  { 'nvim-lua/plenary.nvim' },
-  { "folke/todo-comments.nvim" },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
