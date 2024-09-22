@@ -1,0 +1,9 @@
+# This config goes into %localappdata%/lazygit/config.yml file
+# Kept here only for git
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --line-numbers --side-by-side
+
+os:
+  editPreset: "vscode"
