@@ -50,7 +50,7 @@ vim.keymap.set('n', '<Leader>r', function() require('vscode-neovim').action('edi
 vim.keymap.set('n', '<Leader>ca', function() require('vscode-neovim').action('editor.action.quickFix') end);
 vim.keymap.set('n', '<Leader>bc', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end);
 vim.keymap.set('n', '<Leader>bo', function() require('vscode-neovim').action('workbench.action.closeOtherEditors') end);
-vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').call('workbench.action.tasks.runTask', { args = { 'Lazygit' } }) end);
+vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').action('lazygit.openLazygit') end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('references-view.findReferences') end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end);
 vim.keymap.set('n', 'gi', function() require('vscode-neovim').action('editor.action.goToImplementation') end);
