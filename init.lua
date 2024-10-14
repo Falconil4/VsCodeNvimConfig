@@ -53,6 +53,9 @@ vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').action('la
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('references-view.findReferences') end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end);
 vim.keymap.set('n', 'gi', function() require('vscode-neovim').action('editor.action.goToImplementation') end);
+vim.keymap.set('n', 'gp', function() require('vscode-neovim').action('workbench.action.navigateBack') end);
+vim.keymap.set('n', ']e', function() require('vscode-neovim').action('editor.action.marker.next') end);
+vim.keymap.set('n', '[e', function() require('vscode-neovim').action('editor.action.marker.prev') end);
 
 
 --lazy
