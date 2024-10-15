@@ -49,13 +49,19 @@ vim.keymap.set('n', '<Leader>r', function() require('vscode-neovim').action('edi
 vim.keymap.set('n', '<Leader>ca', function() require('vscode-neovim').action('editor.action.quickFix') end);
 vim.keymap.set('n', '<Leader>bc', function() require('vscode-neovim').action('workbench.action.closeActiveEditor') end);
 vim.keymap.set('n', '<Leader>bo', function() require('vscode-neovim').action('workbench.action.closeOtherEditors') end);
+vim.keymap.set('n', '<Leader>bs', function() require('vscode-neovim').action('workbench.action.files.saveFiles') end);
+vim.keymap.set('n', '<Leader>bb', function() 
+  require('vscode-neovim').call('workbench.action.files.saveFiles')
+  require('vscode-neovim').call('workbench.action.closeAllEditors')
+end);
 vim.keymap.set('n', '<Leader>gg', function() require('vscode-neovim').action('lazygit.openLazygit') end);
+vim.keymap.set('n', '<Leader>y', 'yiw')
+vim.keymap.set('n', '<Leader>p', 'viwp')
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('references-view.findReferences') end);
 vim.keymap.set('n', 'gr', function() require('vscode-neovim').action('editor.action.goToReferences') end);
 vim.keymap.set('n', 'gi', function() require('vscode-neovim').action('editor.action.goToImplementation') end);
 vim.keymap.set('n', 'gp', function() require('vscode-neovim').action('workbench.action.navigateBack') end);
-vim.keymap.set('n', ']e', function() require('vscode-neovim').action('editor.action.marker.next') end);
-vim.keymap.set('n', '[e', function() require('vscode-neovim').action('editor.action.marker.prev') end);
+vim.keymap.set('n', 'ge', function() require('vscode-neovim').action('editor.action.marker.next') end);
 
 
 --lazy
